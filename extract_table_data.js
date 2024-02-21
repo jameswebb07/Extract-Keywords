@@ -1,3 +1,13 @@
+// Function to copy text to clipboard
+function copyToClipboard(text) {
+    var textarea = document.createElement('textarea');
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+}
+
 // Select the table element
 var table = document.querySelector('.css-1tg7zy2-table');
 
@@ -18,6 +28,12 @@ if (table) {
 
     // Output the extracted data to the console
     console.log(data);
+
+    // Copy data to clipboard
+    copyToClipboard(data.join('\n'));
+    
+    // Alert user that data has been copied to clipboard
+    alert('Data copied to clipboard!');
 } else {
     console.log('Table element not found.');
 }

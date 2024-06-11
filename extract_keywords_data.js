@@ -8,6 +8,13 @@ function copyToClipboard(text) {
     document.body.removeChild(textarea);
 }
 
+// Function to convert text to title case
+function toTitleCase(str) {
+    return str.toLowerCase().split(' ').map(function(word) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join(' ');
+}
+
 // Select the table element
 var table = document.querySelector('.css-1tg7zy2-table');
 
@@ -23,7 +30,9 @@ if (table) {
 
         // Extract text content from the first and third <td> elements and store it in the data array
         if (firstCell && thirdCell) {
-            data.push('"' + firstCell.textContent.trim() + '", /* ' + thirdCell.textContent.trim() + ' */');
+            var firstCellText = toTitleCase(firstCell.textContent.trim());
+            var thirdCellText = thirdCell.textContent.trim();
+            data.push('"' + firstCellText + '", /* ' + thirdCellText + ' */');
         }
     });
 

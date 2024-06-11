@@ -17,12 +17,13 @@ if (table) {
 
     // Loop through each row in the table
     table.querySelectorAll('tbody tr').forEach(function(row) {
-        // Select the first <td> element in the row
-        var firstCell = row.querySelector('td');
+        // Select the first and third <td> elements in the row
+        var firstCell = row.querySelector('td:nth-child(1)');
+        var thirdCell = row.querySelector('td:nth-child(3)');
 
-        // Extract text content from the first <td> element and store it in the data array
-        if (firstCell) {
-            data.push(firstCell.textContent.trim());
+        // Extract text content from the first and third <td> elements and store it in the data array
+        if (firstCell && thirdCell) {
+            data.push(firstCell.textContent.trim() + ' - ' + thirdCell.textContent.trim());
         }
     });
 

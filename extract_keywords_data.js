@@ -32,9 +32,6 @@ if (table) {
 
     // Copy data to clipboard
     copyToClipboard(data.join('\n'));
-    
-    // Alert user that data has been copied to clipboard
-    
 } else {
     console.log('Table element not found.');
 }

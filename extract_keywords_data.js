@@ -23,7 +23,7 @@ if (table) {
 
         // Extract text content from the first and third <td> elements and store it in the data array
         if (firstCell && thirdCell) {
-            data.push(firstCell.textContent.trim() + ' - ' + thirdCell.textContent.trim());
+           data.push(firstCell.textContent.trim() + ' /* ' + thirdCell.textContent.trim() + ' */');
         }
     });
 
